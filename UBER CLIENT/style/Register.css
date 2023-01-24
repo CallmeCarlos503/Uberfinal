@@ -1,0 +1,28 @@
+﻿body {
+}
+#Colores{
+        background-color:rgb(40, 40, 40);
+        color:lemonchiffon;
+        font-size:40px;
+}
+#seccion{
+      background-color:rgb(40, 40, 40);
+
+   
+}
+ItemTemplate{
+    padding-left:500em;
+
+}
+#DataList1{
+   margin-left:5px;
+}
+tr{
+    padding:15px;
+}
+td{
+    padding:15px;
+}
+
+
+

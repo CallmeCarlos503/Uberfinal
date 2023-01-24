@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h2>INICIO DE SESION</h2></center>
+
+<div class="row">
+    <form id="frm_user" method="get">
+        <div class="col-lg-6 col-lg-offset-3">
+            <center><img src="https://mms.businesswire.com/media/20200316005228/en/779858/22/Uber_Eats_Logo.jpg" width="200px" height="190px" /></center>
+            <br /><br />
+            <input type="text" name="user" value="" placeholder="Usuario"/>
+            <input type="password" name="pass" value="" placeholder="Password" />
+            <input type="submit" class="btn btn-success" value="Entrar" />
+
+        </div>
+    </form>
+</div>
+@{
+    var a = 1;
+}
+@section scripts
+{
+    <script>
+    $(document).ready(
+        function () {
+            $("#frm_user").submit(function (e) {
+                e.preventDefault();
+                url = "@Url.Content("~/Access/Enter")"
+                parametros = $(this).serialize();
+                $.post(url,parametros,function(data){
+                    if (data == "1") {
+                        document.location.href = "@Url.Content("~/Pedidos/Index")"
+                       
+                    }
+                    else if(data=="2")
+                    {
+                        document.location.href = "@Url.Content("~/TRABAJADORs/Index")"
+
+                    }
+                    
+                    else { alert(data)}
+                })
+            })
+        }
+
+        )
+
+    </script>
+}

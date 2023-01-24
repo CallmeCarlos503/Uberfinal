@@ -1,0 +1,64 @@
+﻿@model UBERJOBS.Models.TRABAJADOR
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Seccion de Eliminacion</h2>
+
+<h3>Seguro que deseas eliminar el usuario?</h3>
+<div>
+    <h4>TRABAJADOR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO_ELECTRONICO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO_ELECTRONICO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOMICILIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOMICILIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONTRASENA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTRASENA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar el trabajador" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

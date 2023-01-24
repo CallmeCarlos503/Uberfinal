@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UBER_EATSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PLATOS" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="String" MaxLength="700" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRECIO" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAL" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ID_REF" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDOS_PROCESO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENTE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PLATOS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRECIO" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAL" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="ID_REF" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PEDIDOS_REALIZADOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENTE" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PLATOS" Type="String" MaxLength="600" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="String" MaxLength="700" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRECIO" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="TOTAL" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ID_REF" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TRABAJADOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CORREO_ELECTRONICO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELEFONO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOMICILIO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="260" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UBER_EATSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PEDIDOes" EntityType="Self.PEDIDO" />
+    <EntitySet Name="PEDIDOS_PROCESO" EntityType="Self.PEDIDOS_PROCESO" />
+    <EntitySet Name="PEDIDOS_REALIZADOS" EntityType="Self.PEDIDOS_REALIZADOS" />
+    <EntitySet Name="TRABAJADORs" EntityType="Self.TRABAJADOR" />
+    <FunctionImport Name="ACTUALIZAR_PEDIDOSUP">
+      <Parameter Name="ACTUALIZAR_PEDIDOS" Mode="In" Type="String" />
+      <Parameter Name="ID_REFE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TOTAL_PRECIOS" ReturnType="Collection(Decimal)">
+      <Parameter Name="ID_REF" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROCESO_FINAL">
+      <Parameter Name="ID_REF" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ADMINISTRADORs" EntityType="UBER_EATSModel.ADMINISTRADOR" />
+  </EntityContainer>
+  <EntityType Name="ADMINISTRADOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CORREO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CONTRASEÑA" Type="String" Nullable="false" MaxLength="130" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UBER_EATSModelStoreContainer" CdmEntityContainer="UBER_EATSEntities1">
+    <EntitySetMapping Name="PEDIDOes">
+      <EntityTypeMapping TypeName="UBER_EATSModel.PEDIDO">
+        <MappingFragment StoreEntitySet="PEDIDO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+          <ScalarProperty Name="PLATOS" ColumnName="PLATOS" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DIRECCION_DE_ENTREGA" ColumnName="DIRECCION_DE_ENTREGA" />
+          <ScalarProperty Name="TRABAJADOR" ColumnName="TRABAJADOR" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="ID_REF" ColumnName="ID_REF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDOS_PROCESO">
+      <EntityTypeMapping TypeName="UBER_EATSModel.PEDIDOS_PROCESO">
+        <MappingFragment StoreEntitySet="PEDIDOS_PROCESO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+          <ScalarProperty Name="PLATOS" ColumnName="PLATOS" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DIRECCION_DE_ENTREGA" ColumnName="DIRECCION_DE_ENTREGA" />
+          <ScalarProperty Name="TRABAJADOR" ColumnName="TRABAJADOR" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="ID_REF" ColumnName="ID_REF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PEDIDOS_REALIZADOS">
+      <EntityTypeMapping TypeName="UBER_EATSModel.PEDIDOS_REALIZADOS">
+        <MappingFragment StoreEntitySet="PEDIDOS_REALIZADOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+          <ScalarProperty Name="PLATOS" ColumnName="PLATOS" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="DIRECCION_DE_ENTREGA" ColumnName="DIRECCION_DE_ENTREGA" />
+          <ScalarProperty Name="TRABAJADOR" ColumnName="TRABAJADOR" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="ID_REF" ColumnName="ID_REF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRABAJADORs">
+      <EntityTypeMapping TypeName="UBER_EATSModel.TRABAJADOR">
+        <MappingFragment StoreEntitySet="TRABAJADOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CORREO_ELECTRONICO" ColumnName="CORREO_ELECTRONICO" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ACTUALIZAR_PEDIDOSUP" FunctionName="UBER_EATSModel.Store.ACTUALIZAR_PEDIDOSUP" />
+    <FunctionImportMapping FunctionImportName="TOTAL_PRECIOS" FunctionName="UBER_EATSModel.Store.TOTAL_PRECIOS" />
+    <FunctionImportMapping FunctionImportName="PROCESO_FINAL" FunctionName="UBER_EATSModel.Store.PROCESO_FINAL" />
+    <EntitySetMapping Name="ADMINISTRADORs">
+      <EntityTypeMapping TypeName="UBER_EATSModel.ADMINISTRADOR">
+        <MappingFragment StoreEntitySet="ADMINISTRADOR">
+          <ScalarProperty Name="CONTRASEÑA" ColumnName="CONTRASEÑA" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UBER_EATSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLIENTE" Type="varchar" MaxLength="600" Nullable="false" />
+    <Property Name="PLATOS" Type="varchar" MaxLength="600" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="varchar" MaxLength="700" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAL" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ID_REF" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PEDIDOS_PROCESO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLIENTE" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PLATOS" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="TOTAL" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="ID_REF" Type="int" />
+  </EntityType>
+  <EntityType Name="PEDIDOS_REALIZADOS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CLIENTE" Type="varchar" MaxLength="600" Nullable="false" />
+    <Property Name="PLATOS" Type="varchar" MaxLength="600" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="DIRECCION_DE_ENTREGA" Type="varchar" MaxLength="700" Nullable="false" />
+    <Property Name="TRABAJADOR" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PRECIO" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="TOTAL" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="ID_REF" Type="int" />
+  </EntityType>
+  <EntityType Name="TRABAJADOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CORREO_ELECTRONICO" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="DOMICILIO" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="CONTRASENA" Type="varchar" MaxLength="260" Nullable="false" />
+  </EntityType>
+  <Function Name="ACTUALIZAR_PEDIDOSUP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTUALIZAR_PEDIDOS" Type="varchar" Mode="In" />
+    <Parameter Name="ID_REFE" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TOTAL_PRECIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_REF" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="UBER_EATSModelStoreContainer">
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDOS_PROCESO" EntityType="Self.PEDIDOS_PROCESO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDOS_REALIZADOS" EntityType="Self.PEDIDOS_REALIZADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRABAJADOR" EntityType="Self.TRABAJADOR" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
